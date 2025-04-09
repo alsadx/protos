@@ -8,6 +8,9 @@ service Auth {
     rpc Register (RegisterRequest) returns (RegisterResponse);
     rpc Login (LoginRequest) returns (LoginResponse);
     rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
+    rpc RefreshToken (RefreshTokenRequest) returns (RefreshTokenResponse);
+    rpc Logout (LogoutRequest) returns (LogoutResponse);
+    rpc GetCurrentUser (GetCurrentUserRequest) returns (GetCurrentUserResponse);
 }
 
 message RegisterRequest {
@@ -28,6 +31,7 @@ message LoginRequest {
 
 message LoginResponse {
     string token = 1;
+    string refresh_token = 2;
 }
 
 message IsAdminRequest {
@@ -36,4 +40,31 @@ message IsAdminRequest {
 
 message IsAdminResponse {
     bool is_admin = 1;
+}
+
+message RefreshTokenRequest {
+    string refresh_token = 1;
+}
+
+message RefreshTokenResponse {
+    string token = 1;
+    string refresh_token = 2;
+}
+
+message LogoutRequest {
+    string token = 1;
+}
+
+message LogoutResponse {
+    bool success = 1;
+}
+
+message GetCurrentUserRequest {
+    string token = 1;
+}
+
+message GetCurrentUserResponse {
+    int64 user_id = 1;
+    string email = 2;
+    string name = 3;
 }
