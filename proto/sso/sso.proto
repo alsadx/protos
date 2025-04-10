@@ -63,6 +63,7 @@ message LogoutResponse {
 
 message GetCurrentUserRequest {
     string token = 1;
+    int32 app_id = 2;
 }
 
 message GetCurrentUserResponse {
