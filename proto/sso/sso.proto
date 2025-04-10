@@ -54,6 +54,7 @@ message RefreshTokenResponse {
 
 message LogoutRequest {
     string token = 1;
+    int32 app_id = 2;
 }
 
 message LogoutResponse {
