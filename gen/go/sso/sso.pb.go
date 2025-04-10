@@ -528,6 +528,7 @@ func (x *LogoutResponse) GetSuccess() bool {
 type GetCurrentUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	AppId         int32                  `protobuf:"varint,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -567,6 +568,13 @@ func (x *GetCurrentUserRequest) GetToken() string {
 		return x.Token
 	}
 	return ""
+}
+
+func (x *GetCurrentUserRequest) GetAppId() int32 {
+	if x != nil {
+		return x.AppId
+	}
+	return 0
 }
 
 type GetCurrentUserResponse struct {
@@ -661,9 +669,10 @@ const file_sso_sso_proto_rawDesc = "" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12\x15\n" +
 	"\x06app_id\x18\x02 \x01(\x05R\x05appId\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"-\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"D\n" +
 	"\x15GetCurrentUserRequest\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token\"[\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12\x15\n" +
+	"\x06app_id\x18\x02 \x01(\x05R\x05appId\"[\n" +
 	"\x16GetCurrentUserResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x12\n" +
