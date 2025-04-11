@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package campaign;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "alsadx.campaign.v1;campaignv1";
+
+service CampaignTools {
+    rpc CreateCampaign (CreateCampaignRequest) returns (CreateCampaignResponse);
+    rpc DeleteCampaign (DeleteCampaignRequest) returns (DeleteCampaignResponse);
+    rpc JoinCampaign (JoinCampaignRequest) returns (JoinCampaignResponse);
+    rpc LeaveCampaign (LeaveCampaignRequest) returns (LeaveCampaignResponse);
+    rpc GetCreatedCampaigns (GetCreatedCampaignsRequest) returns (GetCreatedCampaignsResponse);
+    rpc GetCurrentCampaigns (GetCurrentCampaignsRequest) returns (GetCurrentCampaignsResponse);
+}
+
+message CreateCampaignRequest {
+    string name = 1;
+    optional string description = 2;
+}
+
+message CreateCampaignResponse {
+    int32 campaign_id = 1;
+}
+
+message DeleteCampaignRequest {
+    int32 campaign_id = 1;
+}
+
+message DeleteCampaignResponse {
+    bool success = 1;
+}
+
+message JoinCampaignRequest {
+    int32 campaign_id = 1;
+}
+
+message JoinCampaignResponse {
+    bool success = 1;
+}
+
+message LeaveCampaignRequest {
+    int64 campaign_id = 1;
+}
+
+message LeaveCampaignResponse {
+    bool success = 1;
+}
+
+message GetCreatedCampaignsRequest {}
+
+message GetCreatedCampaignsResponse {
+    int32 campaign_id = 1;
+    string name = 2;
+    optional string description = 3;
+    int32 player_count = 4;
+    google.protobuf.Timestamp created_at = 5;
+}
+
+message GetCurrentCampaignsRequest {}
+
+message GetCurrentCampaignsResponse {
+    int32 campaign_id = 1;
+    string name = 2;
+}
