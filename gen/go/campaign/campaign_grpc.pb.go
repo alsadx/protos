@@ -19,18 +19,18 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CampaignTools_CreateCampaign_FullMethodName      = "/campaign.CampaignTools/CreateCampaign"
-	CampaignTools_DeleteCampaign_FullMethodName      = "/campaign.CampaignTools/DeleteCampaign"
-	CampaignTools_JoinCampaign_FullMethodName        = "/campaign.CampaignTools/JoinCampaign"
-	CampaignTools_LeaveCampaign_FullMethodName       = "/campaign.CampaignTools/LeaveCampaign"
-	CampaignTools_GetCreatedCampaigns_FullMethodName = "/campaign.CampaignTools/GetCreatedCampaigns"
-	CampaignTools_GetCurrentCampaigns_FullMethodName = "/campaign.CampaignTools/GetCurrentCampaigns"
+	CampaignTool_CreateCampaign_FullMethodName      = "/campaign.CampaignTool/CreateCampaign"
+	CampaignTool_DeleteCampaign_FullMethodName      = "/campaign.CampaignTool/DeleteCampaign"
+	CampaignTool_JoinCampaign_FullMethodName        = "/campaign.CampaignTool/JoinCampaign"
+	CampaignTool_LeaveCampaign_FullMethodName       = "/campaign.CampaignTool/LeaveCampaign"
+	CampaignTool_GetCreatedCampaigns_FullMethodName = "/campaign.CampaignTool/GetCreatedCampaigns"
+	CampaignTool_GetCurrentCampaigns_FullMethodName = "/campaign.CampaignTool/GetCurrentCampaigns"
 )
 
-// CampaignToolsClient is the client API for CampaignTools service.
+// CampaignToolClient is the client API for CampaignTool service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CampaignToolsClient interface {
+type CampaignToolClient interface {
 	CreateCampaign(ctx context.Context, in *CreateCampaignRequest, opts ...grpc.CallOption) (*CreateCampaignResponse, error)
 	DeleteCampaign(ctx context.Context, in *DeleteCampaignRequest, opts ...grpc.CallOption) (*DeleteCampaignResponse, error)
 	JoinCampaign(ctx context.Context, in *JoinCampaignRequest, opts ...grpc.CallOption) (*JoinCampaignResponse, error)
@@ -39,271 +39,271 @@ type CampaignToolsClient interface {
 	GetCurrentCampaigns(ctx context.Context, in *GetCurrentCampaignsRequest, opts ...grpc.CallOption) (*GetCurrentCampaignsResponse, error)
 }
 
-type campaignToolsClient struct {
+type campaignToolClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCampaignToolsClient(cc grpc.ClientConnInterface) CampaignToolsClient {
-	return &campaignToolsClient{cc}
+func NewCampaignToolClient(cc grpc.ClientConnInterface) CampaignToolClient {
+	return &campaignToolClient{cc}
 }
 
-func (c *campaignToolsClient) CreateCampaign(ctx context.Context, in *CreateCampaignRequest, opts ...grpc.CallOption) (*CreateCampaignResponse, error) {
+func (c *campaignToolClient) CreateCampaign(ctx context.Context, in *CreateCampaignRequest, opts ...grpc.CallOption) (*CreateCampaignResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateCampaignResponse)
-	err := c.cc.Invoke(ctx, CampaignTools_CreateCampaign_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CampaignTool_CreateCampaign_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *campaignToolsClient) DeleteCampaign(ctx context.Context, in *DeleteCampaignRequest, opts ...grpc.CallOption) (*DeleteCampaignResponse, error) {
+func (c *campaignToolClient) DeleteCampaign(ctx context.Context, in *DeleteCampaignRequest, opts ...grpc.CallOption) (*DeleteCampaignResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteCampaignResponse)
-	err := c.cc.Invoke(ctx, CampaignTools_DeleteCampaign_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CampaignTool_DeleteCampaign_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *campaignToolsClient) JoinCampaign(ctx context.Context, in *JoinCampaignRequest, opts ...grpc.CallOption) (*JoinCampaignResponse, error) {
+func (c *campaignToolClient) JoinCampaign(ctx context.Context, in *JoinCampaignRequest, opts ...grpc.CallOption) (*JoinCampaignResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(JoinCampaignResponse)
-	err := c.cc.Invoke(ctx, CampaignTools_JoinCampaign_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CampaignTool_JoinCampaign_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *campaignToolsClient) LeaveCampaign(ctx context.Context, in *LeaveCampaignRequest, opts ...grpc.CallOption) (*LeaveCampaignResponse, error) {
+func (c *campaignToolClient) LeaveCampaign(ctx context.Context, in *LeaveCampaignRequest, opts ...grpc.CallOption) (*LeaveCampaignResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(LeaveCampaignResponse)
-	err := c.cc.Invoke(ctx, CampaignTools_LeaveCampaign_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CampaignTool_LeaveCampaign_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *campaignToolsClient) GetCreatedCampaigns(ctx context.Context, in *GetCreatedCampaignsRequest, opts ...grpc.CallOption) (*GetCreatedCampaignsResponse, error) {
+func (c *campaignToolClient) GetCreatedCampaigns(ctx context.Context, in *GetCreatedCampaignsRequest, opts ...grpc.CallOption) (*GetCreatedCampaignsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCreatedCampaignsResponse)
-	err := c.cc.Invoke(ctx, CampaignTools_GetCreatedCampaigns_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CampaignTool_GetCreatedCampaigns_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *campaignToolsClient) GetCurrentCampaigns(ctx context.Context, in *GetCurrentCampaignsRequest, opts ...grpc.CallOption) (*GetCurrentCampaignsResponse, error) {
+func (c *campaignToolClient) GetCurrentCampaigns(ctx context.Context, in *GetCurrentCampaignsRequest, opts ...grpc.CallOption) (*GetCurrentCampaignsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCurrentCampaignsResponse)
-	err := c.cc.Invoke(ctx, CampaignTools_GetCurrentCampaigns_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CampaignTool_GetCurrentCampaigns_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CampaignToolsServer is the server API for CampaignTools service.
-// All implementations must embed UnimplementedCampaignToolsServer
+// CampaignToolServer is the server API for CampaignTool service.
+// All implementations must embed UnimplementedCampaignToolServer
 // for forward compatibility.
-type CampaignToolsServer interface {
+type CampaignToolServer interface {
 	CreateCampaign(context.Context, *CreateCampaignRequest) (*CreateCampaignResponse, error)
 	DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error)
 	JoinCampaign(context.Context, *JoinCampaignRequest) (*JoinCampaignResponse, error)
 	LeaveCampaign(context.Context, *LeaveCampaignRequest) (*LeaveCampaignResponse, error)
 	GetCreatedCampaigns(context.Context, *GetCreatedCampaignsRequest) (*GetCreatedCampaignsResponse, error)
 	GetCurrentCampaigns(context.Context, *GetCurrentCampaignsRequest) (*GetCurrentCampaignsResponse, error)
-	mustEmbedUnimplementedCampaignToolsServer()
+	mustEmbedUnimplementedCampaignToolServer()
 }
 
-// UnimplementedCampaignToolsServer must be embedded to have
+// UnimplementedCampaignToolServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCampaignToolsServer struct{}
+type UnimplementedCampaignToolServer struct{}
 
-func (UnimplementedCampaignToolsServer) CreateCampaign(context.Context, *CreateCampaignRequest) (*CreateCampaignResponse, error) {
+func (UnimplementedCampaignToolServer) CreateCampaign(context.Context, *CreateCampaignRequest) (*CreateCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCampaign not implemented")
 }
-func (UnimplementedCampaignToolsServer) DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error) {
+func (UnimplementedCampaignToolServer) DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCampaign not implemented")
 }
-func (UnimplementedCampaignToolsServer) JoinCampaign(context.Context, *JoinCampaignRequest) (*JoinCampaignResponse, error) {
+func (UnimplementedCampaignToolServer) JoinCampaign(context.Context, *JoinCampaignRequest) (*JoinCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method JoinCampaign not implemented")
 }
-func (UnimplementedCampaignToolsServer) LeaveCampaign(context.Context, *LeaveCampaignRequest) (*LeaveCampaignResponse, error) {
+func (UnimplementedCampaignToolServer) LeaveCampaign(context.Context, *LeaveCampaignRequest) (*LeaveCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LeaveCampaign not implemented")
 }
-func (UnimplementedCampaignToolsServer) GetCreatedCampaigns(context.Context, *GetCreatedCampaignsRequest) (*GetCreatedCampaignsResponse, error) {
+func (UnimplementedCampaignToolServer) GetCreatedCampaigns(context.Context, *GetCreatedCampaignsRequest) (*GetCreatedCampaignsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCreatedCampaigns not implemented")
 }
-func (UnimplementedCampaignToolsServer) GetCurrentCampaigns(context.Context, *GetCurrentCampaignsRequest) (*GetCurrentCampaignsResponse, error) {
+func (UnimplementedCampaignToolServer) GetCurrentCampaigns(context.Context, *GetCurrentCampaignsRequest) (*GetCurrentCampaignsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentCampaigns not implemented")
 }
-func (UnimplementedCampaignToolsServer) mustEmbedUnimplementedCampaignToolsServer() {}
-func (UnimplementedCampaignToolsServer) testEmbeddedByValue()                       {}
+func (UnimplementedCampaignToolServer) mustEmbedUnimplementedCampaignToolServer() {}
+func (UnimplementedCampaignToolServer) testEmbeddedByValue()                      {}
 
-// UnsafeCampaignToolsServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CampaignToolsServer will
+// UnsafeCampaignToolServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CampaignToolServer will
 // result in compilation errors.
-type UnsafeCampaignToolsServer interface {
-	mustEmbedUnimplementedCampaignToolsServer()
+type UnsafeCampaignToolServer interface {
+	mustEmbedUnimplementedCampaignToolServer()
 }
 
-func RegisterCampaignToolsServer(s grpc.ServiceRegistrar, srv CampaignToolsServer) {
-	// If the following call pancis, it indicates UnimplementedCampaignToolsServer was
+func RegisterCampaignToolServer(s grpc.ServiceRegistrar, srv CampaignToolServer) {
+	// If the following call pancis, it indicates UnimplementedCampaignToolServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CampaignTools_ServiceDesc, srv)
+	s.RegisterService(&CampaignTool_ServiceDesc, srv)
 }
 
-func _CampaignTools_CreateCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CampaignTool_CreateCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateCampaignRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CampaignToolsServer).CreateCampaign(ctx, in)
+		return srv.(CampaignToolServer).CreateCampaign(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CampaignTools_CreateCampaign_FullMethodName,
+		FullMethod: CampaignTool_CreateCampaign_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CampaignToolsServer).CreateCampaign(ctx, req.(*CreateCampaignRequest))
+		return srv.(CampaignToolServer).CreateCampaign(ctx, req.(*CreateCampaignRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CampaignTools_DeleteCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CampaignTool_DeleteCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteCampaignRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CampaignToolsServer).DeleteCampaign(ctx, in)
+		return srv.(CampaignToolServer).DeleteCampaign(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CampaignTools_DeleteCampaign_FullMethodName,
+		FullMethod: CampaignTool_DeleteCampaign_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CampaignToolsServer).DeleteCampaign(ctx, req.(*DeleteCampaignRequest))
+		return srv.(CampaignToolServer).DeleteCampaign(ctx, req.(*DeleteCampaignRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CampaignTools_JoinCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CampaignTool_JoinCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(JoinCampaignRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CampaignToolsServer).JoinCampaign(ctx, in)
+		return srv.(CampaignToolServer).JoinCampaign(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CampaignTools_JoinCampaign_FullMethodName,
+		FullMethod: CampaignTool_JoinCampaign_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CampaignToolsServer).JoinCampaign(ctx, req.(*JoinCampaignRequest))
+		return srv.(CampaignToolServer).JoinCampaign(ctx, req.(*JoinCampaignRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CampaignTools_LeaveCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CampaignTool_LeaveCampaign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LeaveCampaignRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CampaignToolsServer).LeaveCampaign(ctx, in)
+		return srv.(CampaignToolServer).LeaveCampaign(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CampaignTools_LeaveCampaign_FullMethodName,
+		FullMethod: CampaignTool_LeaveCampaign_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CampaignToolsServer).LeaveCampaign(ctx, req.(*LeaveCampaignRequest))
+		return srv.(CampaignToolServer).LeaveCampaign(ctx, req.(*LeaveCampaignRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CampaignTools_GetCreatedCampaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CampaignTool_GetCreatedCampaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCreatedCampaignsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CampaignToolsServer).GetCreatedCampaigns(ctx, in)
+		return srv.(CampaignToolServer).GetCreatedCampaigns(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CampaignTools_GetCreatedCampaigns_FullMethodName,
+		FullMethod: CampaignTool_GetCreatedCampaigns_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CampaignToolsServer).GetCreatedCampaigns(ctx, req.(*GetCreatedCampaignsRequest))
+		return srv.(CampaignToolServer).GetCreatedCampaigns(ctx, req.(*GetCreatedCampaignsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CampaignTools_GetCurrentCampaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CampaignTool_GetCurrentCampaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCurrentCampaignsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CampaignToolsServer).GetCurrentCampaigns(ctx, in)
+		return srv.(CampaignToolServer).GetCurrentCampaigns(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CampaignTools_GetCurrentCampaigns_FullMethodName,
+		FullMethod: CampaignTool_GetCurrentCampaigns_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CampaignToolsServer).GetCurrentCampaigns(ctx, req.(*GetCurrentCampaignsRequest))
+		return srv.(CampaignToolServer).GetCurrentCampaigns(ctx, req.(*GetCurrentCampaignsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CampaignTools_ServiceDesc is the grpc.ServiceDesc for CampaignTools service.
+// CampaignTool_ServiceDesc is the grpc.ServiceDesc for CampaignTool service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CampaignTools_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "campaign.CampaignTools",
-	HandlerType: (*CampaignToolsServer)(nil),
+var CampaignTool_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "campaign.CampaignTool",
+	HandlerType: (*CampaignToolServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateCampaign",
-			Handler:    _CampaignTools_CreateCampaign_Handler,
+			Handler:    _CampaignTool_CreateCampaign_Handler,
 		},
 		{
 			MethodName: "DeleteCampaign",
-			Handler:    _CampaignTools_DeleteCampaign_Handler,
+			Handler:    _CampaignTool_DeleteCampaign_Handler,
 		},
 		{
 			MethodName: "JoinCampaign",
-			Handler:    _CampaignTools_JoinCampaign_Handler,
+			Handler:    _CampaignTool_JoinCampaign_Handler,
 		},
 		{
 			MethodName: "LeaveCampaign",
-			Handler:    _CampaignTools_LeaveCampaign_Handler,
+			Handler:    _CampaignTool_LeaveCampaign_Handler,
 		},
 		{
 			MethodName: "GetCreatedCampaigns",
-			Handler:    _CampaignTools_GetCreatedCampaigns_Handler,
+			Handler:    _CampaignTool_GetCreatedCampaigns_Handler,
 		},
 		{
 			MethodName: "GetCurrentCampaigns",
-			Handler:    _CampaignTools_GetCurrentCampaigns_Handler,
+			Handler:    _CampaignTool_GetCurrentCampaigns_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

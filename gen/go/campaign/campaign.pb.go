@@ -623,8 +623,8 @@ const file_campaign_campaign_proto_rawDesc = "" +
 	"\x1bGetCurrentCampaignsResponse\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x05R\n" +
 	"campaignId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name2\xa2\x04\n" +
-	"\rCampaignTools\x12S\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name2\xa1\x04\n" +
+	"\fCampaignTool\x12S\n" +
 	"\x0eCreateCampaign\x12\x1f.campaign.CreateCampaignRequest\x1a .campaign.CreateCampaignResponse\x12S\n" +
 	"\x0eDeleteCampaign\x12\x1f.campaign.DeleteCampaignRequest\x1a .campaign.DeleteCampaignResponse\x12M\n" +
 	"\fJoinCampaign\x12\x1d.campaign.JoinCampaignRequest\x1a\x1e.campaign.JoinCampaignResponse\x12P\n" +
@@ -662,18 +662,18 @@ var file_campaign_campaign_proto_goTypes = []any{
 }
 var file_campaign_campaign_proto_depIdxs = []int32{
 	12, // 0: campaign.GetCreatedCampaignsResponse.created_at:type_name -> google.protobuf.Timestamp
-	0,  // 1: campaign.CampaignTools.CreateCampaign:input_type -> campaign.CreateCampaignRequest
-	2,  // 2: campaign.CampaignTools.DeleteCampaign:input_type -> campaign.DeleteCampaignRequest
-	4,  // 3: campaign.CampaignTools.JoinCampaign:input_type -> campaign.JoinCampaignRequest
-	6,  // 4: campaign.CampaignTools.LeaveCampaign:input_type -> campaign.LeaveCampaignRequest
-	8,  // 5: campaign.CampaignTools.GetCreatedCampaigns:input_type -> campaign.GetCreatedCampaignsRequest
-	10, // 6: campaign.CampaignTools.GetCurrentCampaigns:input_type -> campaign.GetCurrentCampaignsRequest
-	1,  // 7: campaign.CampaignTools.CreateCampaign:output_type -> campaign.CreateCampaignResponse
-	3,  // 8: campaign.CampaignTools.DeleteCampaign:output_type -> campaign.DeleteCampaignResponse
-	5,  // 9: campaign.CampaignTools.JoinCampaign:output_type -> campaign.JoinCampaignResponse
-	7,  // 10: campaign.CampaignTools.LeaveCampaign:output_type -> campaign.LeaveCampaignResponse
-	9,  // 11: campaign.CampaignTools.GetCreatedCampaigns:output_type -> campaign.GetCreatedCampaignsResponse
-	11, // 12: campaign.CampaignTools.GetCurrentCampaigns:output_type -> campaign.GetCurrentCampaignsResponse
+	0,  // 1: campaign.CampaignTool.CreateCampaign:input_type -> campaign.CreateCampaignRequest
+	2,  // 2: campaign.CampaignTool.DeleteCampaign:input_type -> campaign.DeleteCampaignRequest
+	4,  // 3: campaign.CampaignTool.JoinCampaign:input_type -> campaign.JoinCampaignRequest
+	6,  // 4: campaign.CampaignTool.LeaveCampaign:input_type -> campaign.LeaveCampaignRequest
+	8,  // 5: campaign.CampaignTool.GetCreatedCampaigns:input_type -> campaign.GetCreatedCampaignsRequest
+	10, // 6: campaign.CampaignTool.GetCurrentCampaigns:input_type -> campaign.GetCurrentCampaignsRequest
+	1,  // 7: campaign.CampaignTool.CreateCampaign:output_type -> campaign.CreateCampaignResponse
+	3,  // 8: campaign.CampaignTool.DeleteCampaign:output_type -> campaign.DeleteCampaignResponse
+	5,  // 9: campaign.CampaignTool.JoinCampaign:output_type -> campaign.JoinCampaignResponse
+	7,  // 10: campaign.CampaignTool.LeaveCampaign:output_type -> campaign.LeaveCampaignResponse
+	9,  // 11: campaign.CampaignTool.GetCreatedCampaigns:output_type -> campaign.GetCreatedCampaignsResponse
+	11, // 12: campaign.CampaignTool.GetCurrentCampaigns:output_type -> campaign.GetCurrentCampaignsResponse
 	7,  // [7:13] is the sub-list for method output_type
 	1,  // [1:7] is the sub-list for method input_type
 	1,  // [1:1] is the sub-list for extension type_name
