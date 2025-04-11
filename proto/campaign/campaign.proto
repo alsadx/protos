@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 
 option go_package = "alsadx.campaign.v1;campaignv1";
 
-service CampaignTools {
+service CampaignTool {
     rpc CreateCampaign (CreateCampaignRequest) returns (CreateCampaignResponse);
     rpc DeleteCampaign (DeleteCampaignRequest) returns (DeleteCampaignResponse);
     rpc JoinCampaign (JoinCampaignRequest) returns (JoinCampaignResponse);
