@@ -9,6 +9,7 @@ option go_package = "alsadx.campaign.v1;campaignv1";
 service CampaignTool {
     rpc CreateCampaign (CreateCampaignRequest) returns (CreateCampaignResponse);
     rpc DeleteCampaign (DeleteCampaignRequest) returns (DeleteCampaignResponse);
+    rpc GenerateInviteCode (GenerateInviteCodeRequest) returns (GenerateInviteCodeResponse);
     rpc JoinCampaign (JoinCampaignRequest) returns (JoinCampaignResponse);
     rpc LeaveCampaign (LeaveCampaignRequest) returns (LeaveCampaignResponse);
     rpc GetCreatedCampaigns (GetCreatedCampaignsRequest) returns (GetCreatedCampaignsResponse);
@@ -32,8 +33,16 @@ message DeleteCampaignResponse {
     bool success = 1;
 }
 
-message JoinCampaignRequest {
+message GenerateInviteCodeRequest {
     int32 campaign_id = 1;
+}
+
+message GenerateInviteCodeResponse {
+    string invite_code = 1;
+}
+
+message JoinCampaignRequest {
+    string invite_code = 1;
 }
 
 message JoinCampaignResponse {

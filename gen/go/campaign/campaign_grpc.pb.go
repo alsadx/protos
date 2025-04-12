@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	CampaignTool_CreateCampaign_FullMethodName      = "/campaign.CampaignTool/CreateCampaign"
 	CampaignTool_DeleteCampaign_FullMethodName      = "/campaign.CampaignTool/DeleteCampaign"
+	CampaignTool_GenerateInviteCode_FullMethodName  = "/campaign.CampaignTool/GenerateInviteCode"
 	CampaignTool_JoinCampaign_FullMethodName        = "/campaign.CampaignTool/JoinCampaign"
 	CampaignTool_LeaveCampaign_FullMethodName       = "/campaign.CampaignTool/LeaveCampaign"
 	CampaignTool_GetCreatedCampaigns_FullMethodName = "/campaign.CampaignTool/GetCreatedCampaigns"
@@ -33,6 +34,7 @@ const (
 type CampaignToolClient interface {
 	CreateCampaign(ctx context.Context, in *CreateCampaignRequest, opts ...grpc.CallOption) (*CreateCampaignResponse, error)
 	DeleteCampaign(ctx context.Context, in *DeleteCampaignRequest, opts ...grpc.CallOption) (*DeleteCampaignResponse, error)
+	GenerateInviteCode(ctx context.Context, in *GenerateInviteCodeRequest, opts ...grpc.CallOption) (*GenerateInviteCodeResponse, error)
 	JoinCampaign(ctx context.Context, in *JoinCampaignRequest, opts ...grpc.CallOption) (*JoinCampaignResponse, error)
 	LeaveCampaign(ctx context.Context, in *LeaveCampaignRequest, opts ...grpc.CallOption) (*LeaveCampaignResponse, error)
 	GetCreatedCampaigns(ctx context.Context, in *GetCreatedCampaignsRequest, opts ...grpc.CallOption) (*GetCreatedCampaignsResponse, error)
@@ -61,6 +63,16 @@ func (c *campaignToolClient) DeleteCampaign(ctx context.Context, in *DeleteCampa
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteCampaignResponse)
 	err := c.cc.Invoke(ctx, CampaignTool_DeleteCampaign_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *campaignToolClient) GenerateInviteCode(ctx context.Context, in *GenerateInviteCodeRequest, opts ...grpc.CallOption) (*GenerateInviteCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateInviteCodeResponse)
+	err := c.cc.Invoke(ctx, CampaignTool_GenerateInviteCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,6 +125,7 @@ func (c *campaignToolClient) GetCurrentCampaigns(ctx context.Context, in *GetCur
 type CampaignToolServer interface {
 	CreateCampaign(context.Context, *CreateCampaignRequest) (*CreateCampaignResponse, error)
 	DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error)
+	GenerateInviteCode(context.Context, *GenerateInviteCodeRequest) (*GenerateInviteCodeResponse, error)
 	JoinCampaign(context.Context, *JoinCampaignRequest) (*JoinCampaignResponse, error)
 	LeaveCampaign(context.Context, *LeaveCampaignRequest) (*LeaveCampaignResponse, error)
 	GetCreatedCampaigns(context.Context, *GetCreatedCampaignsRequest) (*GetCreatedCampaignsResponse, error)
@@ -132,6 +145,9 @@ func (UnimplementedCampaignToolServer) CreateCampaign(context.Context, *CreateCa
 }
 func (UnimplementedCampaignToolServer) DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCampaign not implemented")
+}
+func (UnimplementedCampaignToolServer) GenerateInviteCode(context.Context, *GenerateInviteCodeRequest) (*GenerateInviteCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateInviteCode not implemented")
 }
 func (UnimplementedCampaignToolServer) JoinCampaign(context.Context, *JoinCampaignRequest) (*JoinCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method JoinCampaign not implemented")
@@ -198,6 +214,24 @@ func _CampaignTool_DeleteCampaign_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CampaignToolServer).DeleteCampaign(ctx, req.(*DeleteCampaignRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CampaignTool_GenerateInviteCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateInviteCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CampaignToolServer).GenerateInviteCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CampaignTool_GenerateInviteCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CampaignToolServer).GenerateInviteCode(ctx, req.(*GenerateInviteCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -288,6 +322,10 @@ var CampaignTool_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteCampaign",
 			Handler:    _CampaignTool_DeleteCampaign_Handler,
+		},
+		{
+			MethodName: "GenerateInviteCode",
+			Handler:    _CampaignTool_GenerateInviteCode_Handler,
 		},
 		{
 			MethodName: "JoinCampaign",
