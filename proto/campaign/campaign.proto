@@ -59,7 +59,7 @@ message LeaveCampaignResponse {
 
 message GetCreatedCampaignsRequest {}
 
-message GetCreatedCampaignsResponse {
+message Campaign {
     int32 campaign_id = 1;
     string name = 2;
     optional string description = 3;
@@ -67,9 +67,17 @@ message GetCreatedCampaignsResponse {
     google.protobuf.Timestamp created_at = 5;
 }
 
+message GetCreatedCampaignsResponse {
+    repeated Campaign campaigns = 1;
+}
+
 message GetCurrentCampaignsRequest {}
 
-message GetCurrentCampaignsResponse {
+message CampaignForPlayer {
     int32 campaign_id = 1;
     string name = 2;
+}
+
+message GetCurrentCampaignsResponse {
+    repeated CampaignForPlayer campaigns = 1;
 }
