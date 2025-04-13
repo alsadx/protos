@@ -384,7 +384,7 @@ func (x *JoinCampaignResponse) GetSuccess() bool {
 
 type LeaveCampaignRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	CampaignId    int64                  `protobuf:"varint,1,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
+	CampaignId    int32                  `protobuf:"varint,1,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -419,7 +419,7 @@ func (*LeaveCampaignRequest) Descriptor() ([]byte, []int) {
 	return file_campaign_campaign_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *LeaveCampaignRequest) GetCampaignId() int64 {
+func (x *LeaveCampaignRequest) GetCampaignId() int32 {
 	if x != nil {
 		return x.CampaignId
 	}
@@ -699,7 +699,7 @@ const file_campaign_campaign_proto_rawDesc = "" +
 	"\x14JoinCampaignResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\"7\n" +
 	"\x14LeaveCampaignRequest\x12\x1f\n" +
-	"\vcampaign_id\x18\x01 \x01(\x03R\n" +
+	"\vcampaign_id\x18\x01 \x01(\x05R\n" +
 	"campaignId\"1\n" +
 	"\x15LeaveCampaignResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\"\x1c\n" +
