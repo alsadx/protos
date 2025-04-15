@@ -129,7 +129,6 @@ type LoginRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	AppId         int32                  `protobuf:"varint,3,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -176,13 +175,6 @@ func (x *LoginRequest) GetPassword() string {
 		return x.Password
 	}
 	return ""
-}
-
-func (x *LoginRequest) GetAppId() int32 {
-	if x != nil {
-		return x.AppId
-	}
-	return 0
 }
 
 type LoginResponse struct {
@@ -328,7 +320,6 @@ func (x *IsAdminResponse) GetIsAdmin() bool {
 type RefreshTokenRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RefreshToken  string                 `protobuf:"bytes,1,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
-	AppId         int32                  `protobuf:"varint,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -368,13 +359,6 @@ func (x *RefreshTokenRequest) GetRefreshToken() string {
 		return x.RefreshToken
 	}
 	return ""
-}
-
-func (x *RefreshTokenRequest) GetAppId() int32 {
-	if x != nil {
-		return x.AppId
-	}
-	return 0
 }
 
 type RefreshTokenResponse struct {
@@ -432,7 +416,6 @@ func (x *RefreshTokenResponse) GetRefreshToken() string {
 type LogoutRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	AppId         int32                  `protobuf:"varint,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -472,13 +455,6 @@ func (x *LogoutRequest) GetToken() string {
 		return x.Token
 	}
 	return ""
-}
-
-func (x *LogoutRequest) GetAppId() int32 {
-	if x != nil {
-		return x.AppId
-	}
-	return 0
 }
 
 type LogoutResponse struct {
@@ -528,7 +504,6 @@ func (x *LogoutResponse) GetSuccess() bool {
 type GetCurrentUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	AppId         int32                  `protobuf:"varint,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -568,13 +543,6 @@ func (x *GetCurrentUserRequest) GetToken() string {
 		return x.Token
 	}
 	return ""
-}
-
-func (x *GetCurrentUserRequest) GetAppId() int32 {
-	if x != nil {
-		return x.AppId
-	}
-	return 0
 }
 
 type GetCurrentUserResponse struct {
@@ -647,32 +615,28 @@ const file_sso_sso_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\"+\n" +
 	"\x10RegisterResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\"W\n" +
+	"\auser_id\x18\x01 \x01(\x03R\x06userId\"@\n" +
 	"\fLoginRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x15\n" +
-	"\x06app_id\x18\x03 \x01(\x05R\x05appId\"J\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"J\n" +
 	"\rLoginResponse\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12#\n" +
 	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken\")\n" +
 	"\x0eIsAdminRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\",\n" +
 	"\x0fIsAdminResponse\x12\x19\n" +
-	"\bis_admin\x18\x01 \x01(\bR\aisAdmin\"Q\n" +
+	"\bis_admin\x18\x01 \x01(\bR\aisAdmin\":\n" +
 	"\x13RefreshTokenRequest\x12#\n" +
-	"\rrefresh_token\x18\x01 \x01(\tR\frefreshToken\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\x05R\x05appId\"Q\n" +
+	"\rrefresh_token\x18\x01 \x01(\tR\frefreshToken\"Q\n" +
 	"\x14RefreshTokenResponse\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12#\n" +
-	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken\"<\n" +
+	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken\"%\n" +
 	"\rLogoutRequest\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\x05R\x05appId\"*\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"D\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"-\n" +
 	"\x15GetCurrentUserRequest\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\x05R\x05appId\"[\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"[\n" +
 	"\x16GetCurrentUserResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x12\n" +

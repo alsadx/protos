@@ -26,7 +26,6 @@ message RegisterResponse {
 message LoginRequest {
     string email = 1;
     string password = 2;
-    int32 app_id = 3;
 }
 
 message LoginResponse {
@@ -44,7 +43,6 @@ message IsAdminResponse {
 
 message RefreshTokenRequest {
     string refresh_token = 1;
-    int32 app_id = 2;
 }
 
 message RefreshTokenResponse {
@@ -54,7 +52,6 @@ message RefreshTokenResponse {
 
 message LogoutRequest {
     string token = 1;
-    int32 app_id = 2;
 }
 
 message LogoutResponse {
@@ -63,7 +60,6 @@ message LogoutResponse {
 
 message GetCurrentUserRequest {
     string token = 1;
-    int32 app_id = 2;
 }
 
 message GetCurrentUserResponse {
